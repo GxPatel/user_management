@@ -75,7 +75,7 @@ class UserService:
             session.add(new_user)
             await session.commit()
 
-            # if new_user.role != UserRole.ADMIN:
+            if new_user.role != UserRole.ADMIN:
                 await email_service.send_verification_email(new_user)
 
             return new_user
