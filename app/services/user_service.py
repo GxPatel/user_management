@@ -65,18 +65,17 @@ class UserService:
             new_user.nickname = new_nickname
             logger.info(f"User Role: {new_user.role}")
             user_count = await cls.count(session)
-            new_user.role = UserRole.ADMIN if user_count == 0 else UserRole.ANONYMOUS            
-            if new_user.role == UserRole.ADMIN:
-                new_user.email_verified = True
+            new_user.role = UserRole.ADMIN if user_count == 0 else UserRole.ANONYMOUS  
 
-            else:
-                new_user.verification_token = generate_verification_token()
+            # if new_user.role == UserRole.ADMIN:
+            #     new_user.email_verified = True
 
+            # else:
+            new_user.verification_token = generate_verification_token()
             session.add(new_user)
             await session.commit()
-
-            if new_user.role != UserRole.ADMIN:
-                await email_service.send_verification_email(new_user)
+            # if new_user.role != UserRole.ADMIN:
+            await email_service.send_verification_email(new_user)
 
             return new_user
         except ValidationError as e:
@@ -173,7 +172,8 @@ class UserService:
         if user and user.verification_token == token:
             user.email_verified = True
             user.verification_token = None  # Clear the token once used
-            user.role = UserRole.AUTHENTICATED
+            if user.role == UserRole.ANONYMOUS:
+                user.role = UserRole.AUTHENTICATED
             session.add(user)
             await session.commit()
             return True
@@ -202,3 +202,5 @@ class UserService:
             await session.commit()
             return True
         return False
+
+  
