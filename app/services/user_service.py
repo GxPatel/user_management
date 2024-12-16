@@ -200,32 +200,4 @@ class UserService:
             return True
         return False
 
-    @classmethod
-    async def search_users(
-        cls,
-        session: AsyncSession,
-        username: Optional[str] = None,
-        email: Optional[str] = None,
-        role: Optional[str] = None,
-        status: Optional[str] = None,
-        skip: int = 0,
-        limit: int = 10
-    ) -> List[User]:
-        query = select(User)
-
-        if username:
-            query = query.filter(User.nickname.ilike(f"%{username}%"))
-        if email:
-            query = query.filter(User.email.ilike(f"%{email}%"))
-        if role:
-            query = query.filter(User.role == role)  # Ensure the role is properly compared
-        if status:
-            if status == "active":
-                query = query.filter(User.is_locked == False)  # Example: Filter for active users
-            elif status == "locked":
-                query = query.filter(User.is_locked == True)
-
-        query = query.offset(skip).limit(limit)
-
-        result = await cls._execute_query(session, query)
-        return result.scalars().all() if result else []
+  
