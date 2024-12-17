@@ -1,53 +1,55 @@
+# The User Management System Final Project 🎉✨🔥
+
+## Course Reflection
+
+This comprehensive course has been an immersive journey into the world of data programming with Python and web development. The focus on hands-on projects has honed my critical problem-solving skills, enabling me to address complex information system requirements effectively. 
+
+### Key Learnings:
+- **Proficiency in Python Programming**: Worked extensively with data sources like CSV files, SQL databases, and REST-based web services.
+- **Professional Competencies**:
+  - Adherence to industry standards and code best practices.
+  - Mastery of Git for version control, Agile development principles, and object-oriented programming.
+- **Collaborative Problem Solving**: Engaged in version-controlled workflows, resolving real-world challenges in a professional environment.
+
+This course has equipped me with the technical expertise and professional acumen required to thrive in competitive fields like data programming and web development.
 
 
-# The User Management System Final Project: Your Epic Coding Adventure Awaits! 🎉✨🔥
+## Project Documentation
 
-## Introduction: Buckle Up for the Ride of a Lifetime 🚀🎬
+### Key Features:
+- **User Profile Management**: Enhanced functionality for managing user profiles, including verification and role updates.
 
-Welcome to the User Management System project - an epic open-source adventure crafted by the legendary Professor Keith Williams for his rockstar students at NJIT! 🏫👨‍🏫⭐ This project is your gateway to coding glory, providing a bulletproof foundation for a user management system that will blow your mind! 🤯 You'll bridge the gap between the realms of seasoned software pros and aspiring student developers like yourselves. 
+### Closed QA Issues:
+1. **Issue 1**: Token Not Verified for Second User  
+   - **Description**: Token verification failed for the second user due to improper session handling before sending the verification email.  
+   - **Solution**: Ensured session commit occurs before sending the email.  
+   - [Closed Issue](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/app/services/user_service.py#L70)
 
-### [Instructor Video - Project Overview and Tips](https://youtu.be/gairLNAp6mA) 🎥
+2. **Issue 2**: Admin Email Verification Issue  
+   - **Description**: Admin user token verification failed due to misaligned expiration handling.  
+   - **Solution**: Updated role-specific conditions for token handling.  
+   - [Closed Issue](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/app/services/user_service.py#L170)
 
-- [Introduction to the system features and overview of the project - please read](system_documentation.md) 📚
-- [Project Setup Instructions](setup.md) ⚒️
-- [Features to Select From](features.md) 🛠️
-- [About the Project](about.md)🔥🌟
+### New Tests:
+Ten new test cases were written to ensure robust functionality and enhance code coverage. These include:
+1. [Test Case 1: Update user profile success](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L15)
+2. [Test Case 2: Update user profile not found](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L26)
+3. [Test Case 3: Update user profile partial update](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L36)
+4. [Test Case 4: Update user profile invalid field](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L47)
+5. [Test Case 5: Update professional status success](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L57)
+6. [Test Case 6: Update professional status not found](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L66)
+7. [Test Case 7: Update professional status no change](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L76)
+8. [Test Case 8: Update user profile with special characters](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L85)
+9. [Test Case 9: Update user profile empty data](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L95)
+10. [Test Case 10: Update professional status toggle](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/tests/test_services/test_userprofile_management.py#L106)
 
-## Goals and Objectives: Unlock Your Coding Superpowers 🎯🏆🌟
+### New Feature:
+- **User Profile Management**  
+  - Implemented in `user_service.py` to allow users to manage their profiles seamlessly.  
+  - [Feature Link](https://github.com/GxPatel/user_management/blob/cc9ea632eb8acb8b8020d004fc4d0521fec070b5/app/services/user_service.py#L209)
 
-Get ready to ascend to new heights with this legendary project:
 
-1. **Practical Experience**: Dive headfirst into a real-world codebase, collaborate with your teammates, and contribute to an open-source project like a seasoned pro! 💻👩‍💻🔥
-2. **Quality Assurance**: Develop ninja-level skills in identifying and resolving bugs, ensuring your code quality and reliability are out of this world. 🐞🔍⚡
-3. **Test Coverage**: Write additional tests to cover edge cases, error scenarios, and important functionalities - leave no stone unturned and no bug left behind! ✅🧪🕵️‍♂️
-4. **Feature Implementation**: Implement a brand new, mind-blowing feature and make your epic mark on the project, following best practices for coding, testing, and documentation like a true artisan. ✨🚀🎆
-5. **Collaboration**: Foster teamwork and collaboration through code reviews, issue tracking, and adhering to contribution guidelines - teamwork makes the dream work, and together you'll conquer worlds! 🤝💪🌍
-6. **Industry Readiness**: Prepare for the software industry by working on a project that simulates real-world development scenarios - level up your skills to super hero status  and become an unstoppable coding force! 🔝🚀🏆⚡
+## Docker Deployment
 
-## Submission and Grading: Your Chance to Shine 📝✏️📈
-
-1. **Reflection Document**: Submit a 1-2 page Word document reflecting on your learnings throughout the course and your experience working on this epic project. Include links to the closed issues for the **5 QA issues, 10 NEW tests, and 1 Feature** you'll be graded on. Make sure your project successfully deploys to DockerHub and include a link to your Docker repository in the document - let your work speak for itself! 📄🔗💥
-
-2. **Commit History**: Show off your consistent hard work through your commit history like a true coding warrior. **Projects with less than 10 commits will get an automatic 0 - ouch!** 😬⚠️ A significant part of your project's evaluation will be based on your use of issues, commits, and following a professional development process like a boss - prove your coding prowess! 💻🔄🔥
-
-3. **Deployability**: Broken projects that don't deploy to Dockerhub or pass all the automated tests on GitHub actions will face point deductions - nobody likes a buggy app! 🐞☠️ Show the world your flawless coding skills!
-
-## Managing the Project Workload: Stay Focused, Stay Victorious ⏱️🧠⚡
-
-This project requires effective time management and a well-planned strategy, but fear not - you've got this! Follow these steps to ensure a successful (and sane!) project outcome:
-
-1. **Select a Feature**: [Choose a feature](features.md) from the provided list of additional improvements that sparks your interest and aligns with your goals like a laser beam. ✨⭐🎯 This is your chance to shine!
-
-2. **Quality Assurance (QA)**: Thoroughly test the system's major functionalities related to your chosen feature and identify at least 5 issues or bugs like a true detective. Create GitHub issues for each identified problem, providing detailed descriptions and steps to reproduce - the more detail, the merrier! 🔍🐞🕵️‍♀️ Leave no stone unturned!
-
-3. **Test Coverage Improvement**: Review the existing test suite and identify gaps in test coverage like a pro. Create 10 additional tests to cover edge cases, error scenarios, and important functionalities related to your chosen feature. Focus on areas such as user registration, login, authorization, and database interactions. Simulate the setup of the system as the admin user, then creating users, and updating user accounts - leave no stone unturned, no bug left behind! ✅🧪🔍🔬 Become the master of testing!
-
-4. **New Feature Implementation**: Implement your chosen feature, following the project's coding practices and architecture like a coding ninja. Write appropriate tests to ensure your new feature is functional and reliable like a rock. Document the new feature, including its usage, configuration, and any necessary migrations - future you will thank you profusely! 🚀✨📝👩‍💻⚡ Make your mark on this project!
-
-5. **Maintain a Working Main Branch**: Throughout the project, ensure you always have a working main branch deploying to Docker like a well-oiled machine. This will prevent any last-minute headaches and ensure a smooth submission process - no tears allowed, only triumphs! 😊🚢⚓ Stay focused, stay victorious!
-
-Remember, it's more important to make something work reliably and be reasonably complete than to implement an overly complex feature. Focus on creating a feature that you can build upon or demonstrate in an interview setting - show off your skills like a rockstar! 💪🚀🎓
-
-Don't forget to always have a working main branch deploying to Docker at all times. If you always have a working main branch, you will never be in jeopardy of receiving a very disappointing grade :-). Keep that main branch shining bright!
-
-Let's embark on this epic coding adventure together and conquer the world of software engineering! You've got this, coding rockstars! 🚀🌟✨
+The application has been containerized and deployed on Docker Hub for easy distribution and scalability.  
+**DockerHub Repository**: [WIS Club API](https://hub.docker.com/repository/docker/gxpatel/wis_club_api/general)
