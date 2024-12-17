@@ -203,4 +203,52 @@ class UserService:
             return True
         return False
 
+#EXTRA FEATURE ( User Profile Management )
+
+    @classmethod
+    async def update_user_profile(cls, session: AsyncSession, user_id: UUID, profile_data: Dict[str, str]) -> Optional[User]:
+        """
+        Updates the user profile with the provided profile data.
+
+        :param session: AsyncSession for database operations.
+        :param user_id: UUID of the user to update.
+        :param profile_data: Dictionary of profile fields to update.
+        :return: Updated user object or None if user not found.
+        """
+        user = await cls.get_by_id(session, user_id)
+        if not user:
+            logger.error(f"User with ID {user_id} not found.")
+            raise HTTPException(status_code=404, detail="User not found")
+
+        for key, value in profile_data.items():
+            setattr(user, key, value)
+
+        session.add(user)
+        await session.commit()
+        await session.refresh(user)
+        logger.info(f"User {user_id} profile updated successfully.")
+        return user
+
+    @classmethod
+    async def update_professional_status(cls, session: AsyncSession, user_id: UUID, is_professional: bool) -> Optional[User]:
+        """
+        Updates the professional status of a user.
+
+        :param session: AsyncSession for database operations.
+        :param user_id: UUID of the user to update.
+        :param is_professional: Boolean indicating the professional status.
+        :return: Updated user object or None if user not found.
+        """
+        user = await cls.get_by_id(session, user_id)
+        if not user:
+            logger.error(f"User with ID {user_id} not found.")
+            raise HTTPException(status_code=404, detail="User not found")
+
+        user.update_professional_status(is_professional)
+        session.add(user)
+        await session.commit()
+        await session.refresh(user)
+        logger.info(f"User {user_id} professional status updated to {is_professional}.")
+        return user
+
   
